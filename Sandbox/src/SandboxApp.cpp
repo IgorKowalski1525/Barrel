@@ -13,3 +13,8 @@ public:
 
 	}
 };
+
+Barrel::Application* Barrel::CreateApplication()
+{
+	return new Sandbox();
+}

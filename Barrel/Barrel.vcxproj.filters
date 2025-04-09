@@ -24,6 +24,9 @@
     <ClInclude Include="src\Barrel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Barrel\EntryPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Barrel\Application.cpp">
