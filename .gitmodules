@@ -1,0 +1,3 @@
+[submodule "Barrel/vendor/spdlog"]
+	path = Barrel/vendor/spdlog
+	url = https://github.com/gabime/spdlog
