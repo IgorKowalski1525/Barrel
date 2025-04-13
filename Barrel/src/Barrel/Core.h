@@ -9,3 +9,5 @@
 #else
 	#error Baryla toczy sie tylko w windowsie.
 #endif
+
+#define BIT(x) (1 << x)
