@@ -1,3 +1,6 @@
 [submodule "Barrel/vendor/spdlog"]
 	path = Barrel/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Barrel/vendor/GLFW"]
+	path = Barrel/vendor/GLFW
+	url = https://github.com/IgorKowalski1525/glfw
