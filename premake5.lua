@@ -10,6 +10,11 @@ workspace "Barrel"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Barrel/vendor/GLFW/include"
+
+include "Barrel/vendor/GLFW"
+
 project "Barrel"
 	location "Barrel"
 	kind "SharedLib"
@@ -30,9 +35,14 @@ project "Barrel"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
 	}
-	
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
+	}
 	filter "system:windows"
 		cppdialect "C++20"
 		staticruntime "On"
