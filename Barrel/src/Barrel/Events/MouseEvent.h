@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Barrel 
 {
 	class BARREL_API MouseMovedEvent : public Event

@@ -18,6 +18,8 @@ project "Barrel"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "brpch.h"
+	pchsource "Barrel/src/brpch.cpp"
 
 	files
 	{

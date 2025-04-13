@@ -1,3 +1,4 @@
+#include "brpch.h"
 #include "Application.h"
 #include "Barrel/Events/ApplicationEvent.h"
 #include "Barrel/Log.h"

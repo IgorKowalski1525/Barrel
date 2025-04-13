@@ -2,9 +2,6 @@
 
 #include "Barrel/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Barrel
 {
 	enum class EventType
