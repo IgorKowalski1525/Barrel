@@ -4,6 +4,9 @@
     <Filter Include="Barrel">
       <UniqueIdentifier>{BD3CEFA8-A9DE-197F-9299-2DD37EDAA0CF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Barrel\Events">
+      <UniqueIdentifier>{0192030C-6D52-7F42-368D-C8BFA20CC41E}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Barrel.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Barrel\EntryPoint.h">
       <Filter>Barrel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Barrel\Events\ApplicationEvent.h">
+      <Filter>Barrel\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Barrel\Events\Event.h">
+      <Filter>Barrel\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Barrel\Events\KeyEvent.h">
+      <Filter>Barrel\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Barrel\Events\MouseEvent.h">
+      <Filter>Barrel\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Barrel\Log.h">
       <Filter>Barrel</Filter>
