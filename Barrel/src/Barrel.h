@@ -6,6 +6,7 @@
 #include "Barrel/Application.h"
 #include "Barrel/Layer.h"
 #include "Barrel/Log.h"
+#include "Barrel/ImGui/ImGuiLayer.h"
 
 //----------Entry Point----------
 #include "Barrel/EntryPoint.h"

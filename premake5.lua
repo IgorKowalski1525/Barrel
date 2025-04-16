@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Barrel/vendor/GLFW/include"
 IncludeDir["Glad"] = "Barrel/vendor/Glad/include"
+IncludeDir["ImGui"] = "Barrel/vendor/imgui"
 
 include "Barrel/vendor/GLFW"
 include "Barrel/vendor/Glad"
+include "Barrel/vendor/imgui"
 
 project "Barrel"
 	location "Barrel"
@@ -40,14 +42,16 @@ project "Barrel"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links 
 	{ 
 		"GLFW",
 		"Glad",
-		"opengl32.lib"
+		"opengl32.lib",
+		"ImGui"
 	}
 
 	filter "system:windows"

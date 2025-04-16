@@ -4,3 +4,6 @@
 [submodule "Barrel/vendor/GLFW"]
 	path = Barrel/vendor/GLFW
 	url = https://github.com/IgorKowalski1525/glfw
+[submodule "Barrel/vendor/imgui"]
+	path = Barrel/vendor/imgui
+	url = https://github.com/IgorKowalski1525/imgui
