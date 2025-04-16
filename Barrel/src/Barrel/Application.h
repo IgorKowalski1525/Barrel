@@ -16,4 +16,3 @@ namespace Barrel
 	Application* CreateApplication();
 }
 
-

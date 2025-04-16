@@ -12,6 +12,7 @@
 #include <unordered_set>
 #include <sstream>
 
+#include "Barrel/Log.h"
 
 #ifdef BR_PLATFORM_WINDOWS
 	#include <Windows.h>

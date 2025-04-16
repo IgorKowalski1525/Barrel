@@ -15,9 +15,8 @@ namespace Barrel
 		WindowResizeEvent e(1280, 720);
 		BR_TRACE(e.ToString())
 
-		if (!e.IsInCategory(EventCategoryKeyboard))
-			BR_CRITICAL("This is a triumph.")
-		while (true);
+			if (!e.IsInCategory(EventCategoryKeyboard))
+				BR_CRITICAL("This is a triumph.")
+				while (true);
 	}
 }
-

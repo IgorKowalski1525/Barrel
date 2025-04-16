@@ -1,6 +1,6 @@
 workspace "Barrel"
 	architecture "x64"
-	startproject "Sandbox"
+
 	configurations
 	{
 		"Debug",
@@ -10,6 +10,7 @@ workspace "Barrel"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Barrel/vendor/GLFW/include"
 
@@ -38,13 +39,15 @@ project "Barrel"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}"
 	}
-	links
-	{
+
+	links 
+	{ 
 		"GLFW",
 		"opengl32.lib"
 	}
+
 	filter "system:windows"
-		cppdialect "C++20"
+		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
@@ -53,15 +56,11 @@ project "Barrel"
 			"BR_PLATFORM_WINDOWS",
 			"BR_BUILD_DLL"
 		}
-		buildoptions
+
+		postbuildcommands
 		{
-			"/utf-8"
+			("{COPYFILE} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
-			postbuildcommands
-		{
-			("{COPYFILE} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox/")
-		}
-		
 
 	filter "configurations:Debug"
 		defines "BR_DEBUG"
@@ -82,15 +81,13 @@ project "Sandbox"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-	buildoptions
-		{
-			"/utf-8"
-		}
+
 	files
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
 	}
+
 	includedirs
 	{
 		"Barrel/vendor/spdlog/include",
@@ -101,9 +98,9 @@ project "Sandbox"
 	{
 		"Barrel"
 	}
-	
+
 	filter "system:windows"
-		cppdialect "C++20"
+		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
