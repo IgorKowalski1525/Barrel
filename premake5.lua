@@ -1,6 +1,6 @@
 workspace "Barrel"
 	architecture "x64"
-
+	buildoptions{"/utf-8"}
 	configurations
 	{
 		"Debug",
