@@ -20,7 +20,23 @@ namespace Barrel
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		BR_CORE_TRACE("{0}", e.ToString());
+
+		for(auto it = m_LayerStack.end(); it !=m_LayerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.IsHandled())
+				break;
+		}
+	}
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* overlay)
+	{
+		m_LayerStack.PushOverlay(overlay);
 	}
 
 	void Application::Run()
@@ -29,6 +45,9 @@ namespace Barrel
 		{
 			glClearColor(0, 0.8, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
 			m_Window->OnUpdate();
 		}
 	}

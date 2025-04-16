@@ -4,6 +4,7 @@
 // For use by Barrel apps
 
 #include "Barrel/Application.h"
+#include "Barrel/Layer.h"
 #include "Barrel/Log.h"
 
 //----------Entry Point----------
