@@ -63,19 +63,16 @@ namespace Barrel
 	class BARREL_API MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
-		MouseButtonPressedEvent(int button, int repeatCount) : MouseButtonEvent(button), m_RepeatCount(repeatCount){}
+		MouseButtonPressedEvent(int button) : MouseButtonEvent(button){}
 
-		inline int GetRepeatCount() const { return m_RepeatCount; }
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseButtonPressedEvent: " << m_Button << " (" << m_RepeatCount << " repeats)";
+			ss << "MouseButtonPressedEvent: " << m_Button;
 			return ss.str();
 		}
 		EVENT_CLASS_TYPE(MouseButtonPressed)
-	private:
-		int m_RepeatCount;
 	};
 
 	class BARREL_API MouseButtonReleasedEvent : public MouseButtonEvent
