@@ -7,7 +7,7 @@ public:
 
 	void OnUpdate() override
 	{
-		BR_INFO("ExampleLayer::Update");
+		//BR_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Barrel::Event& event) override
