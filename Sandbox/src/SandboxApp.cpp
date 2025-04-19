@@ -12,7 +12,7 @@ public:
 
 	void OnEvent(Barrel::Event& event) override
 	{
-		BR_TRACE("{0}", event.ToString());
+		BR_CORE_INFO(event)
 	}
 };
 

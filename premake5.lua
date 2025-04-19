@@ -1,6 +1,7 @@
 workspace "Barrel"
 	architecture "x64"
 	buildoptions{"/utf-8"}
+	startproject "Sandbox"
 	configurations
 	{
 		"Debug",
@@ -10,7 +11,6 @@ workspace "Barrel"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Barrel/vendor/GLFW/include"
 IncludeDir["Glad"] = "Barrel/vendor/Glad/include"
@@ -24,6 +24,7 @@ project "Barrel"
 	location "Barrel"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -55,8 +56,7 @@ project "Barrel"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
+		cppdialect "C++20"
 		systemversion "latest"
 
 		defines
@@ -68,28 +68,29 @@ project "Barrel"
 
 		postbuildcommands
 		{
-			("{COPYFILE} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPYFILE} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "BR_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "BR_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"	
 
 	filter "configurations:Dist"
 		defines "BR_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -112,8 +113,7 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
+		cppdialect "C++20"
 		systemversion "latest"
 
 		defines
@@ -123,16 +123,16 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "BR_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "BR_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 		
 	filter "configurations:Dist"
 		defines "BR_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 		
