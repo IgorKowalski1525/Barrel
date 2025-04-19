@@ -7,12 +7,13 @@ public:
 
 	void OnUpdate() override
 	{
-		//BR_INFO("ExampleLayer::Update");
+		if (Barrel::Input::IsKeyPressed(BR_KEY_TAB))
+			BR_INFO("TABBED");
 	}
 
 	void OnEvent(Barrel::Event& event) override
 	{
-		BR_CORE_INFO(event)
+		/*BR_CORE_INFO(event)*/
 	}
 };
 
