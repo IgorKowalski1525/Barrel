@@ -7,3 +7,6 @@
 [submodule "Barrel/vendor/imgui"]
 	path = Barrel/vendor/imgui
 	url = https://github.com/IgorKowalski1525/imgui
+[submodule "Barrel/vendor/glm"]
+	path = Barrel/vendor/glm
+	url = https://github.com/g-truc/glm
