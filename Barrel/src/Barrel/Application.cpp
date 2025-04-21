@@ -1,20 +1,26 @@
 #include "brpch.h"
 #include "Application.h"
-#include "Barrel/Log.h"
+
 #include "Input.h"
-#include "glad/glad.h"
+
+#include <glad/glad.h>
 namespace Barrel
 {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
 		BR_CORE_ASSERT(!s_Instance, "Application already exists.")
 		s_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 	Application::~Application()
 	{
@@ -49,11 +55,17 @@ namespace Barrel
 	{
 		while(m_Running)
 		{
-			glClearColor(0, 0.8, 1, 1);
+			glClearColor(0, 0.7f, 0.9f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
+
 			m_Window->OnUpdate();
 		}
 	}

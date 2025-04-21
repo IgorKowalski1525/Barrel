@@ -1,5 +1,5 @@
 #include <Barrel.h>
-
+#include "imgui/imgui.h"
 class ExampleLayer : public Barrel::Layer
 {
 public:
@@ -15,6 +15,13 @@ public:
 	{
 		/*BR_CORE_INFO(event)*/
 	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
+	}
 };
 
 class Sandbox : public Barrel::Application
@@ -23,7 +30,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Barrel::ImGuiLayer());
 	}
 
 	~Sandbox()

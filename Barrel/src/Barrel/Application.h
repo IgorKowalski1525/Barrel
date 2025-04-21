@@ -5,6 +5,7 @@
 #include "Barrel/Events/ApplicationEvent.h"
 #include "Barrel/Events/Event.h"
 #include "Barrel/LayerStack.h"
+#include "Barrel/ImGui/ImGuiLayer.h"
 
 namespace Barrel
 {
@@ -27,6 +28,7 @@ namespace Barrel
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 		static Application* s_Instance;

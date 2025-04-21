@@ -109,6 +109,7 @@ project "Sandbox"
 	{
 		"Barrel/vendor/spdlog/include",
 		"Barrel/src",
+		"Barrel/vendor",
 		"%{IncludeDir.glm}"
 	}
 
