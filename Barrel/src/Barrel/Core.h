@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef BR_PLATFORM_WINDOWS
-	#ifdef BR_BUILD_DLL
-		#define BARREL_API __declspec(dllexport)
+	#if BR_DYNAMIC_LINK
+		#ifdef BR_BUILD_DLL
+			#define BARREL_API __declspec(dllexport)
+		#else
+			#define BARREL_API __declspec(dllimport)
+		#endif
 	#else
-		#define BARREL_API __declspec(dllimport)
+		#define BARREL_API
 	#endif
 #else
 	#error Baryla toczy sie tylko w windowsie.
