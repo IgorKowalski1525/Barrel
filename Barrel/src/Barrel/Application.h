@@ -6,6 +6,7 @@
 #include "Barrel/Events/Event.h"
 #include "Barrel/LayerStack.h"
 #include "Barrel/ImGui/ImGuiLayer.h"
+#include "Barrel/Renderer/Shader.h"
 
 namespace Barrel
 {
@@ -31,6 +32,10 @@ namespace Barrel
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
+	private:
 		static Application* s_Instance;
 	};
 

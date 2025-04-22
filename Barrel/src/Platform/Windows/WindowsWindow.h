@@ -2,6 +2,8 @@
 
 #include "Barrel/Window.h"
 
+#include "Barrel/Renderer/GraphicsContext.h"
+
 #include "GLFW/glfw3.h"
 
 namespace Barrel
@@ -38,5 +40,6 @@ namespace Barrel
 		};
 
 		WindowData m_Data;
+		GraphicsContext* m_Context;
 	};
 }

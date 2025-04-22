@@ -161,10 +161,13 @@
     <ClInclude Include="src\Barrel\LayerStack.h" />
     <ClInclude Include="src\Barrel\Log.h" />
     <ClInclude Include="src\Barrel\MouseButtonCodes.h" />
+    <ClInclude Include="src\Barrel\Renderer\Shader.h" />
     <ClInclude Include="src\Barrel\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\brpch.h" />
+    <ClInclude Include="src\Barrel\Renderer\GraphicsContext.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp" />
@@ -591,6 +594,8 @@
     <ClCompile Include="src\Barrel\Layer.cpp" />
     <ClCompile Include="src\Barrel\LayerStack.cpp" />
     <ClCompile Include="src\Barrel\Log.cpp" />
+    <ClCompile Include="src\Barrel\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\brpch.cpp">
