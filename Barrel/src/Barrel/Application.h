@@ -8,7 +8,7 @@
 #include "Barrel/ImGui/ImGuiLayer.h"
 #include "Barrel/Renderer/Shader.h"
 #include "Barrel/Renderer/Buffer.h"
-
+#include "Barrel/Renderer/VertexArray.h"
 namespace Barrel
 {
 	class BARREL_API Application
@@ -34,10 +34,11 @@ namespace Barrel
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray;
-		std::unique_ptr<Shader> m_Shader;
-		std::unique_ptr<VertexBuffer> m_VertexBuffer;
-		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+
+		std::shared_ptr<VertexArray> m_SquareVA;
+		std::shared_ptr<Shader> m_BlueShader;
 	private:
 		static Application* s_Instance;
 	};
